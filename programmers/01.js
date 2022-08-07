@@ -51,3 +51,52 @@ function solution(answers) {
     }
     return score;
 }
+
+// 03
+//문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수
+// s는 길이 1 이상, 길이 8 이하인 문자열입니다.
+// s는 영문 알파벳 대소문자 또는 0부터 9까지 숫자로 이루어져 있습니다.
+
+s = "a123"
+function solution(s) {
+  return s.search(/\D/g) < 0 && (s.length == 4 || s.length == 6)
+}
+solution(s);
+// 정규식 아예 까먹고 있었음
+// search와 match 다른 점 match는 배열?
+
+
+// 04
+// 길이가 n이고, "수박수박수박수...."와 같은 패턴을 유지하는 문자열을 리턴하는 함수
+// 예를들어 n이 4이면 "수박수박"을 리턴하고 3이라면 "수박수"를 리턴하면 됩니다.
+// n은 길이 10,000이하인 자연수입니다.
+function solution(n) {
+  let answer = "";
+  for(let i = 0; i < n; i++){
+      answer += i % 2 === 0 ? "수" : "박";
+  }
+      return answer;
+}
+
+// 05
+// 문자열 s를 숫자로 변환한 결과를 반환하는 함수
+// s의 길이는 1 이상 5이하입니다.
+// s의 맨앞에는 부호(+, -)가 올 수 있습니다.
+// s는 부호와 숫자로만 이루어져있습니다.
+// s는 "0"으로 시작하지 않습니다.
+
+function solution(s) {
+  return parseInt(s);
+}
+
+// parseInt() cf.Math.floor()
+
+function solution(n) {
+  let count = 0;
+  for(let i = 0;i < n; i++){
+      if(i % n === 0){
+          count++;
+      }
+  }
+  return count;
+}
