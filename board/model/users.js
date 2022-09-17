@@ -21,7 +21,7 @@ class User extends Sql.Model{
         )
     }
     static associate(db){
-        db.User.hasMany(db.Post, { foreignKey : "post_writer", sourceKey : "id" });
+        db.User.hasMany(db.Post, { foreignKey : "user_id", sourceKey : "id" });
     }
     // static associate(db){
     //     db.User.hasMany(db.Comment, { foreignKey : "comment_writer", sourceKey : "user_name" });

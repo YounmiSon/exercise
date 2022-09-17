@@ -15,6 +15,10 @@ class Post extends Sql.Model{
                 type : Sql.STRING(200), 
                 allowNull : false, 
             }, 
+            post_writer :{
+                type : Sql.STRING(20), 
+                allowNull : false, 
+            }, 
         },
         {
             sequelize,
@@ -29,7 +33,7 @@ class Post extends Sql.Model{
         )
     }
     static associate(db){
-        db.Post.belongsTo(db.User, { foreignKey : "post_writer", targetKey : "id" });
+        db.Post.belongsTo(db.User, { foreignKey : "user_id", targetKey : "id" });
     }
     static associate(db){
         db.Post.hasMany(db.Comment, { foreignKey : "post_id", sourceKey : "id" });
