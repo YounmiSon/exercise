@@ -2,10 +2,12 @@ const Sql = require("sequelize");
 class Post extends Sql.Model{
     static init(sequelize){
         return super.init({
-            id:{
-                primaryKey:true,
+            post_id:{
                 type:Sql.INTEGER,
-                autoIncrement:true
+                primaryKey: true,
+                allowNull : false, 
+                autoIncrement:true,
+                unique : true, 
             },
             post_title :{
                 type : Sql.STRING(45), 
@@ -33,10 +35,10 @@ class Post extends Sql.Model{
         )
     }
     static associate(db){
-        db.Post.belongsTo(db.User, { foreignKey : "user_id", targetKey : "id" });
+        db.Post.belongsTo(db.User, { foreignKey : "user_id", targetKey : "user_id" });
     }
     static associate(db){
-        db.Post.hasMany(db.Comment, { foreignKey : "post_id", sourceKey : "id" });
+        db.Post.hasMany(db.Comment, { foreignKey : "post_id", sourceKey : "post_id" });
     }
 }
 

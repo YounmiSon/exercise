@@ -9,6 +9,17 @@
 <body>
     <h1>게시판</h1>
     <a href="/board/write">글쓰기</a>
-
+    <div>
+        <span>번호</span>
+        <span>제목</span>
+        <span>작성자</span>
+        <span>작성일</span>
+    </div>
+    <div>
+        <span><%= Post.post_id %></span>
+        <span><%= Post.post_title %></span>
+        <span><%= Post.post_writer %></span>
+        <span><%= Post.created_at %></span>
+    </div>
 </body>
 </html>

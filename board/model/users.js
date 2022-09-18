@@ -2,6 +2,12 @@ const Sql = require("sequelize");
 class User extends Sql.Model{
     static init(sequelize){
         return super.init({
+            user_id:{
+                type:Sql.INTEGER,
+                primaryKey: true,
+                allowNull : false, 
+                autoIncrement:true,
+            },
             user_name :{
                 type : Sql.STRING(20), 
                 allowNull : false, 
@@ -21,11 +27,8 @@ class User extends Sql.Model{
         )
     }
     static associate(db){
-        db.User.hasMany(db.Post, { foreignKey : "user_id", sourceKey : "id" });
+        db.User.hasMany(db.Post, { foreignKey : "user_id", sourceKey : "user_id" });
     }
-    // static associate(db){
-    //     db.User.hasMany(db.Comment, { foreignKey : "comment_writer", sourceKey : "user_name" });
-    // }
 }
 
 module.exports = User;
